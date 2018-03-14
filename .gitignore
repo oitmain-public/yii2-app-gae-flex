@@ -41,3 +41,4 @@ index.yaml
 
 # local environment
 .env
+config/web-local.php

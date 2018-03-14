@@ -1,0 +1,19 @@
+<?php
+
+// This configuration will be merged with web.php
+// See index.php for detail on merging
+
+$localConfig = [
+    'components' => [
+        'db' => [
+            // 'enableSchemaCache' => true,
+            // 'schemaCacheDuration' => 60,
+            // 'schemaCache' => 'cache',
+        ],
+        'errorHandler' => [
+            //'class' => 'app\models\CustomErrorHandler',
+        ],
+    ]
+];
+
+return $localConfig;

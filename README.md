@@ -20,6 +20,7 @@ Copy and update configuration files
 ```bash
 $ cp .env.dist .env
 $ cp app.yaml.dist app.yaml
+$ cp config/web-local.php.dist config/web-local.php
 ```
 
 ### Local Deployment
