@@ -29,7 +29,18 @@ skip_files:
 - runtime/
 - web/assets/
 
+env_variables:
+  # framework
+  YII_DEBUG: false
+  YII_ENV: prod
 
+  # database
+  MYSQL_DSN: mysql:unix_socket=/cloudsql/<instance-connection-name>;dbname=<dbname>
+  MYSQL_USERNAME: <username>
+  MYSQL_PASSWORD: <password>
+
+#beta_settings:
+#    cloud_sql_instances: "<instance-connection-name>"
 
 
 
