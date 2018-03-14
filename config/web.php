@@ -7,7 +7,6 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'runtimePath' => IS_GAE ? sys_get_temp_dir() : dirname(__DIR__) . DIRECTORY_SEPARATOR . 'runtime',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
@@ -52,12 +51,19 @@ $config = [
             ],
         ],
         */
-        'assetManager' => [
-            'basePath' => IS_GAE ? sys_get_temp_dir() : '@webroot/assets',
-        ],
     ],
     'params' => $params,
 ];
+
+if (IS_GAE) {
+    $config['runtimePath'] = sys_get_temp_dir();
+    $config['components']['assetManager'] = [
+        'class' => 'Oitmain\Yii2\Google\GoogleStorageAssetManager',
+        'googleStorageBucket' => '<your-bucket>',
+        'baseUrl' => 'https://storage.googleapis.com/<your-bucket>',
+        'basePath' => sys_get_temp_dir(),
+    ];
+}
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
