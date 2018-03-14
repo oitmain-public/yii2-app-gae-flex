@@ -14,7 +14,7 @@ $config = [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'ChangeThisToASecureKey',
+            'cookieValidationKey' => getenv('COOKIE_VALIDATION_KEY'),
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -63,8 +63,8 @@ if (IS_GAE) {
     // Use Google Storage for assets
     $config['components']['assetManager'] = [
         'class' => 'Oitmain\Yii2\Google\GoogleStorageAssetManager',
-        'googleStorageBucket' => '<your-bucket>',
-        'baseUrl' => 'https://storage.googleapis.com/<your-bucket>',
+        'googleStorageBucket' => getenv('ASSET_GOOGLE_STORAGE_BUCKET'),
+        'baseUrl' => 'https://storage.googleapis.com/' . getenv('ASSET_GOOGLE_STORAGE_BUCKET'),
         'basePath' => sys_get_temp_dir(),
     ];
 
