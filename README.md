@@ -20,6 +20,9 @@ $ echo '[{"origin": ["*"],"responseHeader": ["Content-Type"],"method": ["GET", "
 
 Instruction for advance branch : https://github.com/oitmain-public/yii2-app-gae-flex/blob/advanced/README.md
 
+### Prerequisites
+ * app service account must have `Storage Object Viewer` role
+
 ### Installalion
 
 Clone project and install composer requirements
