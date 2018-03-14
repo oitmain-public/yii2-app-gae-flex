@@ -7,6 +7,8 @@ However, static assets are uploaded into Google Storage for public access
 
 (Advance branch adds local environment support and pretty url)
 
+Instruction for advance branch : https://github.com/oitmain-public/yii2-app-gae-flex/blob/advanced/README.md
+
 ### Installalion
 
 Clone project and install composer requirements
