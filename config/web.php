@@ -7,10 +7,10 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'runtimePath' => sys_get_temp_dir(),
+    'runtimePath' => IS_GAE ? sys_get_temp_dir() : dirname(__DIR__) . DIRECTORY_SEPARATOR . 'runtime',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
     'components' => [
         'request' => [
@@ -53,7 +53,7 @@ $config = [
         ],
         */
         'assetManager' => [
-            'basePath' => sys_get_temp_dir(),
+            'basePath' => IS_GAE ? sys_get_temp_dir() : '@webroot/assets',
         ],
     ],
     'params' => $params,
