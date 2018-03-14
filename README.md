@@ -48,3 +48,8 @@ $ gcloud app deploy —version [YOUR_VERSION_ID] —no-promote —project [YOUR_
  * https://cloud.google.com/appengine/docs/flexible/php/using-cloud-sql
  * Enable Cloud SQL API on app engine project
  * Give Cloud SQL permission to app engine default service account email on Cloud SQL project
+
+### Troubleshooting
+ * A circular dependency is detected for bundle
+   * This error occurs when asset bundle is called twice. Once for front view, and once for error view.
+   * Use `app\models\PhpErrorHandler` to see the actual error without calling the error view
