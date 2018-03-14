@@ -10,7 +10,7 @@ However, static assets are uploaded into Google Storage for public access
 Instruction for advance branch : https://github.com/oitmain-public/yii2-app-gae-flex/blob/advanced/README.md
 
 ### Prerequisites
- * app service account must have `Storage Object Viewer` role
+ * 
 
 ### Installalion
 
