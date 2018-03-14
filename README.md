@@ -5,12 +5,16 @@ Flex Environment allows read and write on the directory `sys_get_temp_dir()`, wh
 
 However, static assets are uploaded into Google Storage for public access
 
+(Advance branch adds local environment support and pretty url)
+
 ### Installalion
 
 Clone project and install composer requirements
 
 ```bash
 $ git clone https://github.com/oitmain-public/yii2-app-gae-flex
+$ # For Advanced app, clone following branch instead
+$ # git clone -b advanced https://github.com/oitmain-public/yii2-app-gae-flex
 $ cd yii2-app-gae-flex
 $ composer install
 ```
