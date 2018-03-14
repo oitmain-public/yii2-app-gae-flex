@@ -1,18 +1,20 @@
 {
-    "name": "yiisoft/yii2-app-basic",
-    "description": "Yii 2 Basic Project Template",
-    "keywords": ["yii2", "framework", "basic", "project template"],
-    "homepage": "http://www.yiiframework.com/",
+    "name": "oitmain-public/yii2-app-gae-flex",
+    "version": "1.0",
+    "description": "Yii2 basic application for deploy on Google App Engine (Flex Environment)",
     "type": "project",
+    "keywords": [
+        "GAE", "Yii2", "RESTful", "API", "google app engine", "framework", "basic", "project template"
+    ],
     "license": "BSD-3-Clause",
-    "support": {
-        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
-        "forum": "http://www.yiiframework.com/forum/",
-        "wiki": "http://www.yiiframework.com/wiki/",
-        "irc": "irc://irc.freenode.net/yii",
-        "source": "https://github.com/yiisoft/yii2"
-    },
-    "minimum-stability": "dev",
+    "homepage": "https://github.com/oitmain-public/yii2-app-gae-flex",
+    "authors": [
+        {
+            "name": "Oitmain, Inc",
+            "email": "support@oitmain.com"
+        }
+    ],
+    "minimum-stability": "stable",
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": "~2.0.14",
