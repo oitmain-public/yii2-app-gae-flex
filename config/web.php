@@ -24,6 +24,9 @@ $config = [
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
+            // Uncomment following line to disable Yii2 error handling
+            // This is useful when debugging asset issues or WSOD
+            // 'class' => 'app\models\PhpErrorHandler',
             'errorAction' => 'site/error',
         ],
         'mailer' => [
