@@ -18,7 +18,6 @@ $ composer install
 Copy and update configuration files
 
 ```bash
-$ cp .env.dist .env
 $ cp app.yaml.dist app.yaml
 ```
 
