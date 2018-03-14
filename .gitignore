@@ -37,3 +37,6 @@ app.yaml
 cron.yaml
 dispatch.yaml
 index.yaml
+
+# local environment
+.env
