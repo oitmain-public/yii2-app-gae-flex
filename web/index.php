@@ -21,6 +21,29 @@ if (!IS_GAE) {
     (new \Dotenv\Dotenv(dirname(__DIR__)))->load();
 } else {
     // Google App Engine loads environment values from app.yaml
+
+    // Get Client IP behind proxy if running in GAE
+    function getUserIP()
+    {
+        if (array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER) && !empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            if (strpos($_SERVER['HTTP_X_FORWARDED_FOR'], ',') > 0) {
+                $addr = explode(",", $_SERVER['HTTP_X_FORWARDED_FOR']);
+                return trim($addr[0]);
+            } else {
+                return $_SERVER['HTTP_X_FORWARDED_FOR'];
+            }
+        } else {
+            return $_SERVER['REMOTE_ADDR'];
+        }
+    }
+
+    $_SERVER['REMOTE_ADDR'] = filter_var(trim(getUserIP()), FILTER_VALIDATE_IP);
+
+}
+
+if (in_array(@$_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1', getenv('DEBUG_IP')])) {
+    define('YII_DEBUG', true);
+    define('YII_ENV', "dev");
 }
 
 defined('YII_DEBUG') or define('YII_DEBUG', getenv('YII_DEBUG') === 'true');

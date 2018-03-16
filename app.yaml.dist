@@ -35,6 +35,7 @@ env_variables:
   YII_ENV: prod
   ASSET_GOOGLE_STORAGE_BUCKET: your-bucket
   COOKIE_VALIDATION_KEY: SomeSecureKey
+  USE_MEMCACHED: false
 
   # database
   MYSQL_DSN: mysql:unix_socket=/cloudsql/<instance-connection-name>;dbname=<dbname>
