@@ -5,6 +5,19 @@ Flex Environment allows read and write on the directory `sys_get_temp_dir()`, wh
 
 However, static assets are uploaded into Google Storage for public access
 
+### Prerequisites
+ * Create a Google Storage bucket with permission Storage Object Viewer to allUsers
+ * Create a json key file for user <your-project>@appspot.gserviceaccount.com
+ * Enable "Google App Engine Admin API"
+ * Enable "Google App Engine Flexible Environment"
+ * Enable "Cloud SQL API" on app engine project
+ * Enable "Google Service Management API"
+ * Enable cors on new storage bucket
+```bash
+$ echo '[{"origin": ["*"],"responseHeader": ["Content-Type"],"method": ["GET", "HEAD"],"maxAgeSeconds": 3600}]' > cors-config.json \
+&& gsutil cors set cors-config.json gs://<your-bucket-name>
+```
+
 ### Installalion
 
 Clone project and install composer requirements
@@ -41,3 +54,8 @@ $ gcloud app deploy —version [YOUR_VERSION_ID] —no-promote —project [YOUR_
  * https://cloud.google.com/appengine/docs/flexible/php/using-cloud-sql
  * Enable Cloud SQL API on app engine project
  * Give Cloud SQL permission to app engine default service account email on Cloud SQL project
+
+### Troubleshooting
+ * A circular dependency is detected for bundle
+   * This error occurs when asset bundle is called twice. Once for front view, and once for error view.
+   * Use `app\models\PhpErrorHandler` to see the actual error without calling the error view
