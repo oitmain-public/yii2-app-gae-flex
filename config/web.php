@@ -56,6 +56,13 @@ $config = [
     'params' => $params,
 ];
 
+if (getenv('USE_MEMCACHED')) {
+    $config['components']['cache'] = [
+        'class' => 'yii\caching\MemCache',
+        'useMemcached' => true,
+    ];
+}
+
 if (IS_GAE || getenv('ASSET_GOOGLE_STORAGE_BUCKET')) {
 
     // Use Google Storage for assets
@@ -76,13 +83,6 @@ if (IS_GAE) {
     $config['components']['db']['enableSchemaCache'] = true;
     $config['components']['db']['schemaCacheDuration'] = 60;
     $config['components']['db']['schemaCache'] = 'cache';
-
-    if (getenv('USE_MEMCACHED')) {
-        $config['components']['cache'] = [
-            'class' => 'yii\caching\MemCache',
-            'useMemcached' => true,
-        ];
-    }
 
 }
 
