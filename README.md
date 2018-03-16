@@ -21,7 +21,17 @@ $ echo '[{"origin": ["*"],"responseHeader": ["Content-Type"],"method": ["GET", "
 Instruction for advance branch : https://github.com/oitmain-public/yii2-app-gae-flex/blob/advanced/README.md
 
 ### Prerequisites
- * 
+ * Create a Google Storage bucket with permission Storage Object Viewer to allUsers
+ * Create a json key file for user <your-project>@appspot.gserviceaccount.com
+ * Enable "Google App Engine Admin API"
+ * Enable "Google App Engine Flexible Environment"
+ * Enable "Cloud SQL API" on app engine project
+ * Enable "Google Service Management API"
+ * Enable cors on new storage bucket
+```bash
+$ echo '[{"origin": ["*"],"responseHeader": ["Content-Type"],"method": ["GET", "HEAD"],"maxAgeSeconds": 3600}]' > cors-config.json \
+&& gsutil cors set cors-config.json gs://<your-bucket-name>
+```
 
 ### Installalion
 
