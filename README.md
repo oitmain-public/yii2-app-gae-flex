@@ -17,6 +17,11 @@ However, static assets are uploaded into Google Storage for public access
 $ echo '[{"origin": ["*"],"responseHeader": ["Content-Type"],"method": ["GET", "HEAD"],"maxAgeSeconds": 3600}]' > cors-config.json \
 && gsutil cors set cors-config.json gs://<your-bucket-name>
 ```
+ * Make bucket public
+```bash
+$ gsutil acl ch -u AllUsers:R gs://<your-bucket-name>
+```
+  
 
 ### Installalion
 
