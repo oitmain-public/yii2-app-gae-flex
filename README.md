@@ -21,6 +21,11 @@ Instruction for advance branch : https://github.com/oitmain-public/yii2-app-gae-
 $ echo '[{"origin": ["*"],"responseHeader": ["Content-Type"],"method": ["GET", "HEAD"],"maxAgeSeconds": 3600}]' > cors-config.json \
 && gsutil cors set cors-config.json gs://<your-bucket-name>
 ```
+ * Make bucket public
+```bash
+$ gsutil acl ch -u AllUsers:R gs://<your-bucket-name>
+```
+  
 
 ### Installalion
 
