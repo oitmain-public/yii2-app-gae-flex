@@ -56,34 +56,11 @@ $config = [
     'params' => $params,
 ];
 
-if (getenv('USE_MEMCACHED')) {
+if (filter_var(getenv('USE_MEMCACHED'), FILTER_VALIDATE_BOOLEAN)) {
     $config['components']['cache'] = [
         'class' => 'yii\caching\MemCache',
         'useMemcached' => true,
     ];
-}
-
-if (IS_GAE || getenv('ASSET_GOOGLE_STORAGE_BUCKET')) {
-
-    // Use Google Storage for assets
-    $config['components']['assetManager'] = [
-        'class' => 'Oitmain\Yii2\Google\GoogleStorageAssetManager',
-        'googleStorageBucket' => getenv('ASSET_GOOGLE_STORAGE_BUCKET'),
-        'baseUrl' => 'https://storage.googleapis.com/' . getenv('ASSET_GOOGLE_STORAGE_BUCKET'),
-        'basePath' => sys_get_temp_dir(),
-    ];
-
-}
-
-if (IS_GAE) {
-
-    // Use tmp directory for runtime files
-    $config['runtimePath'] = sys_get_temp_dir();
-
-    $config['components']['db']['enableSchemaCache'] = true;
-    $config['components']['db']['schemaCacheDuration'] = 60;
-    $config['components']['db']['schemaCache'] = 'cache';
-
 }
 
 if (YII_ENV_DEV) {
